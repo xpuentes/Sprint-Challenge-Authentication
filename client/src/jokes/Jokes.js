@@ -1,9 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const JokeBox = styled.div`
+  margin: 0 auto;
+  width: 600px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 15px;
+`
 
 class Jokes extends React.Component {
   state = {
-    jokes: []
+    jokes: [],
+    current: 0
   }
 
   componentDidMount(){
@@ -23,14 +37,14 @@ class Jokes extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
         <h2>Jokes</h2>
-        <ul>
+        <div>
           {this.state.jokes.map(jokes =>
-            <li key={jokes.id}>{jokes.joke}</li>
+            <JokeBox key={jokes.id}>{jokes.joke}</JokeBox>
           )}
-        </ul>
-      </>
+        </div>
+      </div>
     );
   }
 }
