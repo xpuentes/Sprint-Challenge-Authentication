@@ -31,7 +31,7 @@ function register(req, res) {
 function login(req, res) {
   // implement user login
   let { username, password } = req.body;
-  
+
   db('users')
     .where('username', username)
     .first()
