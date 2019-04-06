@@ -1,5 +1,31 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const LoginForm = styled.form`
+  border: 1px solid black;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 200px;
+  margin: 0 auto;
+  background: lightgray;
+`
+const Inputs = styled.input`
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  font-size: 20px;
+`
+const Button = styled.button`
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 10px;
+`
 
 class LogIn extends React.Component {
   state = {
@@ -30,8 +56,8 @@ class LogIn extends React.Component {
     return (
       <>
         <h2>Log In</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
+        <LoginForm onSubmit={this.handleSubmit}>
+          <Inputs
             name = 'username'
             id = 'username'
             placeholder = 'Username'
@@ -39,7 +65,7 @@ class LogIn extends React.Component {
             onChange = {this.handleInputChange}
             type = 'text'
           />
-          <input
+          <Inputs
             name = 'password'
             id = 'password'
             placeholder = 'Password'
@@ -47,8 +73,10 @@ class LogIn extends React.Component {
             onChange = {this.handleInputChange}
             type = 'password'
           />
-          <button type='submit'>Sign In</button>
-        </form>
+          <div>
+            <Button type='submit'>Sign In</Button>
+          </div>
+        </LoginForm>
       </>
     );
   }
